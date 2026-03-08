@@ -17,7 +17,10 @@
       "Bash(cp \"/tmp/gh_extracted/bin/gh.exe\" \"/c/Users/daily92/AppData/Local/Microsoft/WindowsApps/gh.exe\")",
       "Bash(cp \"/tmp/gh_extracted/bin/gh.exe\" \"/c/Users/daily92/AppData/Roaming/npm/gh.exe\")",
       "Bash(\"/c/Users/daily92/AppData/Roaming/npm/gh.exe\" --version)",
-      "Bash(vercel whoami)"
+      "Bash(vercel whoami)",
+      "Bash(gh repo create sparq-esp32 --public --description \"מערכת AI להדרכת ילדים לבניית פרויקטים עם ESP32\" --source=. --remote=origin --push)",
+      "Bash(vercel --yes --name sparq-esp32)",
+      "Bash(vercel --prod)"
     ],
     "additionalDirectories": [
       "\\tmp\\gh_extracted\\bin",
