@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --src-dir --no-eslint --no-import-alias --yes)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --src-dir --no-eslint --no-import-alias --yes --force)",
+      "Read(//c/Users/daily92/Documents/**)",
+      "Bash(npx create-next-app@latest mamad-tmp --typescript --tailwind --app --src-dir --no-eslint --no-import-alias --yes)",
+      "Bash(cp -r mamad-tmp/. mamad/)",
+      "Bash(rm -rf mamad-tmp)",
+      "Bash(npm install zustand @anthropic-ai/sdk openai @google/generative-ai react-syntax-highlighter zod nanoid clsx tailwind-merge)",
+      "Bash(npm install --save-dev @types/react-syntax-highlighter)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(node -e \"console.log\\(require\\(''./node_modules/zod/package.json''\\).version\\)\")",
+      "Bash(npm run build)"
+    ]
+  }
+}

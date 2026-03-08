@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -X POST http://localhost:3000/api/project/suggest -H \"Content-Type: application/json\" -d \"{\"\"components\"\":[\"\"esp32\"\",\"\"led-red\"\",\"\"button\"\",\"\"resistor-220\"\"],\"\"difficulty\"\":\"\"beginner\"\"}\")",
+      "Bash(npm install -g vercel)",
+      "Bash(winget install --id GitHub.cli -e)",
+      "Bash(where vercel)",
+      "Bash(vercel --version)",
+      "Bash(winget install --id GitHub.cli -e --accept-source-agreements --accept-package-agreements)",
+      "Bash(npm install -g gh)",
+      "Bash(where gh)",
+      "Bash(gh --version)",
+      "Bash(gh auth status)",
+      "Bash(curl -sL \"https://github.com/cli/cli/releases/download/v2.67.0/gh_2.67.0_windows_amd64.zip\" -o /tmp/gh.zip)",
+      "Read(//c/tmp/**)",
+      "Bash(unzip -o gh.zip -d gh_extracted)",
+      "Bash(cp \"/tmp/gh_extracted/bin/gh.exe\" \"/c/Users/daily92/AppData/Local/Microsoft/WindowsApps/gh.exe\")",
+      "Bash(cp \"/tmp/gh_extracted/bin/gh.exe\" \"/c/Users/daily92/AppData/Roaming/npm/gh.exe\")",
+      "Bash(\"/c/Users/daily92/AppData/Roaming/npm/gh.exe\" --version)",
+      "Bash(vercel whoami)"
+    ],
+    "additionalDirectories": [
+      "\\tmp\\gh_extracted\\bin",
+      "c:\\Users\\daily92\\Documents"
+    ]
+  }
+}
