@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import { createUser, getUserByEmail } from '@/lib/users';
 
 export async function POST() {
-  const email = process.env.ADMIN_BOOTSTRAP_EMAIL;
-  const password = process.env.ADMIN_BOOTSTRAP_PASSWORD;
+  const email = process.env.ADMIN_BOOTSTRAP_EMAIL?.trim();
+  const password = process.env.ADMIN_BOOTSTRAP_PASSWORD?.trim();
 
   if (!email || !password) {
     return NextResponse.json(
