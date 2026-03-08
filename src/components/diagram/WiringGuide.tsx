@@ -18,7 +18,7 @@ interface Props {
 }
 
 export function WiringGuide({ connections, wiringTextHe }: Props) {
-  if (!connections || connections.length === 0) return null;
+  if ((!connections || connections.length === 0) && !wiringTextHe) return null;
 
   return (
     <div className="space-y-4">
@@ -31,7 +31,7 @@ export function WiringGuide({ connections, wiringTextHe }: Props) {
         </div>
       )}
 
-      <div className="overflow-x-auto">
+      {connections && connections.length > 0 && <div className="overflow-x-auto">
         <table className="w-full text-sm border-separate border-spacing-y-1">
           <thead>
             <tr>
@@ -71,7 +71,7 @@ export function WiringGuide({ connections, wiringTextHe }: Props) {
             })}
           </tbody>
         </table>
-      </div>
+      </div>}
 
       {/* Safety notice */}
       <div className="bg-red-50 border border-red-200 rounded-xl p-3 flex gap-2 text-xs text-red-700">

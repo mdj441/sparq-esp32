@@ -159,7 +159,7 @@ export default function SessionPage() {
         </main>
 
         {/* Right: chat panel */}
-        <aside className="w-80 bg-white border-r border-gray-200 flex flex-col flex-shrink-0 hidden lg:flex">
+        <aside id="chat" className="w-80 bg-white border-r border-gray-200 flex flex-col flex-shrink-0 hidden lg:flex">
           <ChatPanel />
         </aside>
       </div>

@@ -43,6 +43,15 @@ AI tutor named "ספארק" covers wiring, incremental code, testing, and debugg
 - `z.record()` needs two args in Zod v4
 - `_hasHydrated` guard in session page prevents redirect before localStorage hydrates
 - Plan prompt requests 4-5 steps max, fields ≤2 sentences (prevents JSON truncation)
+- WiringGuide: early-return condition checks BOTH connections empty AND wiringTextHe missing (not just connections)
+- AI providers: stream errors use `controller.error(err)` not `finally { controller.close() }` — error propagation
+- useChat: `placeholderAdded` flag prevents orphaned empty assistant bubble on mid-stream error
+- Mobile chat button: chat aside has `id="chat"` so `href="#chat"` anchor works correctly
+
+## Build Status
+- TypeScript: ✅ zero errors
+- Next.js build: ✅ clean (8 routes, 0 warnings)
+- `.env.example` present with all required keys documented
 
 ## Planned Features
 - Phase 2: SVG circuit diagrams, Monaco Editor, language switcher HE/EN, AI provider selector

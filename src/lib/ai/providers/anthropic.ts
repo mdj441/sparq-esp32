@@ -39,8 +39,9 @@ export const anthropicProvider: AIProvider = {
               controller.enqueue(encoder.encode(event.delta.text));
             }
           }
-        } finally {
           controller.close();
+        } catch (err) {
+          controller.error(err);
         }
       },
     });

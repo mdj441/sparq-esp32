@@ -36,8 +36,9 @@ export const openaiProvider: AIProvider = {
             const text = chunk.choices[0]?.delta?.content ?? '';
             if (text) controller.enqueue(encoder.encode(text));
           }
-        } finally {
           controller.close();
+        } catch (err) {
+          controller.error(err);
         }
       },
     });

@@ -18,6 +18,7 @@ export function useChat() {
       // Add user message immediately
       addMessage({ role: 'user', content: userMessage });
 
+      let placeholderAdded = false;
       try {
         const res = await fetch('/api/chat', {
           method: 'POST',
@@ -37,6 +38,7 @@ export function useChat() {
 
         // Add placeholder for assistant message
         addMessage({ role: 'assistant', content: '' });
+        placeholderAdded = true;
 
         // Read SSE stream
         const reader = res.body.getReader();
@@ -51,8 +53,13 @@ export function useChat() {
       } catch (err) {
         const msg = err instanceof Error ? err.message : 'שגיאה לא ידועה';
         setError(msg);
-        // Add error message as assistant
-        addMessage({ role: 'assistant', content: `⚠️ שגיאה: ${msg}` });
+        // If a placeholder was already added, append the error to it;
+        // otherwise add a new assistant message to avoid duplicate bubbles.
+        if (placeholderAdded) {
+          appendToLastAssistantMessage(`\n\n⚠️ שגיאה: ${msg}`);
+        } else {
+          addMessage({ role: 'assistant', content: `⚠️ שגיאה: ${msg}` });
+        }
       } finally {
         setIsStreaming(false);
       }

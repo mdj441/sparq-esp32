@@ -10,12 +10,6 @@ interface Props {
   totalSteps: number;
 }
 
-const DIFFICULTY_COLORS = {
-  beginner: 'green',
-  intermediate: 'yellow',
-  advanced: 'red',
-} as const;
-
 export function StepDetail({ step, totalSteps }: Props) {
   return (
     <div className="space-y-6">
