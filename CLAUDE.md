@@ -1,7 +1,7 @@
 # ספארק – ESP32 AI Tutor for Kids
 
 ## Project Overview
-Web app that guides children (ages 8-14) step-by-step through ESP32 Arduino projects.
+Web app that guides children (ages 8-14) step-by-step through ESP32 MicroPython projects.
 AI tutor named "ספארק" covers wiring, incremental code, testing, and debugging in Hebrew.
 
 ## Stack

@@ -47,7 +47,15 @@
       "Bash(curl -s -X POST https://sparq-esp32.vercel.app/api/seed)",
       "Bash(curl -s https://sparq-esp32.vercel.app/ -o /dev/null -w \"%{http_code} -> %{redirect_url}\")",
       "Bash(printf '%s' 'https://sparq-esp32.vercel.app')",
-      "Bash(vercel env add AUTH_URL production)"
+      "Bash(vercel env add AUTH_URL production)",
+      "Bash(vercel logs sparq-esp32.vercel.app --limit 50)",
+      "Bash(vercel logs sparq-esp32.vercel.app)",
+      "Bash(curl -s -X POST https://sparq-esp32.vercel.app/api/auth/callback/credentials -H \"Content-Type: application/x-www-form-urlencoded\" -d \"email=mdj441%40gmail.com&password=wx1kd7Qc5O4OLYxB&csrfToken=test&callbackUrl=%2F\" -w \"\\\\nHTTP_STATUS: %{http_code}\")",
+      "Bash(curl -sv -X GET https://sparq-esp32.vercel.app/api/auth/csrf)",
+      "Bash(# Full login flow simulation with cookie jar curl -sc /tmp/sparq-cookies.txt https://sparq-esp32.vercel.app/api/auth/csrf)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d[''csrfToken'']\\)\")",
+      "Bash(vercel ls sparq-esp32)",
+      "Bash(vercel inspect sparq-esp32-lukzuwqbr-mdj441-4882s-projects.vercel.app)"
     ],
     "additionalDirectories": [
       "\\tmp\\gh_extracted\\bin",

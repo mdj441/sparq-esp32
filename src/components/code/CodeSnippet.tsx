@@ -39,7 +39,7 @@ export function CodeSnippet({ codeStep }: Props) {
       {/* Code block */}
       <div className="rounded-b-xl overflow-hidden -mt-2">
         <SyntaxHighlighter
-          language="cpp"
+          language="python"
           style={vscDarkPlus}
           customStyle={{ margin: 0, borderRadius: '0 0 0.75rem 0.75rem', fontSize: '13px' }}
           showLineNumbers

@@ -47,7 +47,7 @@ export default function HomePage() {
       <div className="mt-16 flex flex-wrap gap-6 justify-center text-sm text-gray-500">
         {[
           { icon: '🔌', text: 'חיבורי חוטים צעד-אחר-צעד' },
-          { icon: '💻', text: 'קוד Arduino מוסבר' },
+          { icon: '💻', text: 'קוד MicroPython מוסבר' },
           { icon: '🤖', text: 'עוזר AI תמיד זמין' },
           { icon: '🏆', text: 'מותאם לילדים 8-14' },
         ].map((f) => (
