@@ -11,6 +11,8 @@ const MAX_CHAT_HISTORY = 40;
 
 interface SessionStore {
   session: TutoringSession | null;
+  _hasHydrated: boolean;
+  setHasHydrated: (v: boolean) => void;
 
   // Session lifecycle
   createSession: (params: {
@@ -52,6 +54,8 @@ export const useSessionStore = create<SessionStore>()(
   persist(
     (set, get) => ({
       session: null,
+      _hasHydrated: false,
+      setHasHydrated: (v) => set({ _hasHydrated: v }),
 
       createSession: (params) => {
         const session: TutoringSession = {
@@ -144,6 +148,9 @@ export const useSessionStore = create<SessionStore>()(
           : createJSONStorage(() => noopStorage),
       partialize: (state) => ({ session: state.session }),
       version: 1,
+      onRehydrateStorage: () => (state) => {
+        state?.setHasHydrated(true);
+      },
     }
   )
 );

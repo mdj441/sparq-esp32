@@ -18,16 +18,18 @@ const DIFFICULTY_MAP = {
 
 export default function SessionPage() {
   const router = useRouter();
-  const { session, setCurrentStep, markStepComplete } = useSessionStore();
+  const { session, _hasHydrated, setCurrentStep, markStepComplete } = useSessionStore();
 
-  // Redirect if no session or no plan
+  // Wait for Zustand to hydrate from localStorage before redirecting
   useEffect(() => {
+    if (!_hasHydrated) return;
     if (!session || !session.projectPlan) {
       router.replace('/');
     }
-  }, [session, router]);
+  }, [_hasHydrated, session, router]);
 
-  if (!session || !session.projectPlan) {
+  // Show spinner while hydrating or if no session yet
+  if (!_hasHydrated || !session || !session.projectPlan) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-4xl animate-bounce">⚡</div>
