@@ -62,7 +62,7 @@ export default function SessionPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="h-screen bg-gray-50 flex flex-col overflow-hidden">
       {/* Top bar */}
       <header className="bg-white border-b border-gray-200 px-4 py-3 flex items-center gap-4">
         <Link href="/" className="text-gray-400 hover:text-gray-600 transition-colors">
