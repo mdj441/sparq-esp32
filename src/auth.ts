@@ -12,18 +12,23 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       authorize: async (credentials) => {
-        const parsed = z
-          .object({ email: z.string().email(), password: z.string().min(1) })
-          .safeParse(credentials);
-        if (!parsed.success) return null;
+        try {
+          const parsed = z
+            .object({ email: z.string().email(), password: z.string().min(1) })
+            .safeParse(credentials);
+          if (!parsed.success) return null;
 
-        const user = await getUserByEmail(parsed.data.email);
-        if (!user) return null;
+          const user = await getUserByEmail(parsed.data.email);
+          if (!user) return null;
 
-        const valid = await bcrypt.compare(parsed.data.password, user.passwordHash);
-        if (!valid) return null;
+          const valid = await bcrypt.compare(parsed.data.password, user.passwordHash);
+          if (!valid) return null;
 
-        return { id: user.id, email: user.email, name: user.name, role: user.role };
+          return { id: user.id, email: user.email, name: user.name, role: user.role };
+        } catch (err) {
+          console.error('[auth] authorize error:', err);
+          return null;
+        }
       },
     }),
   ],
